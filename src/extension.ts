@@ -48,7 +48,7 @@ class Alignment {
         let maxLen = Math.max(editor.document.lineAt(selections[0].active).text.length);
         selections.forEach((selection) => {
             maxLen = Math.max(maxLen, editor.document.lineAt(selection.active).text.length);
-            let range = new vscode.Range(selection.start.line, 0, selection.end.character > 0 ? selection.end.line : selection.end.line - 1, maxLen);
+            let range = new vscode.Range(selection.start.line, 0, selection.end.character > 0 ? selection.end.line+1 : selection.end.line - 1, maxLen);
             let text = editor.document.getText(range);
             let lines = text.split(/\r\n|\r|\n/);
             let maxPosition = 0;
